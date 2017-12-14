@@ -7,7 +7,7 @@ class tracer:
 		
 	def __call__(self,*args):
 	"""intercept the call attr, count accumulated call number,
-	then return the instance func（the packed original func）"""
+	   then return the instance func（the packed original func）"""
 		self.calls += 1
 		self.func(*args)
 		print('call %s to %s' %(self.calls, self.func.__name__))
