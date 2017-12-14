@@ -17,3 +17,23 @@ class tracer:
 @tracer
 def func(*args):
 	pass
+	
+
+"""But when decorating a class, then a question come:
+   the wraped class have an instance 'self', and the tracer have an instance 'self' too,
+   in fact, only the tracer's instance pass through the wraped class.
+   to slove this problem, use the nested def to bulid a decorator"""
+   
+def tracer(func):
+	calls = 0                                                 #calls become a func.attr
+	def onCall(*args, **kwargs):
+		nonlocal calls                                        #nested func can use nest func.attr                                       
+		onCall.calls += 1
+		print('calls %s to %s' %(onCall.calls, func.__name__))
+		return func(*args, **kwargs)
+	return onCall
+ 
+ 
+ @tracer
+ def func():
+ 	pass
