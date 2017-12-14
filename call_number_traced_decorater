@@ -1,7 +1,7 @@
 class tracer:
 	"""creat a class decorater that count the call number of func """
 	def __init__(self, func):
-	"""initialize instance self attr which pack the original func,defined call number"""
+	"""initialize instance self attr which wrap the original func,defined call number"""
 		self.calls = 0
 		self.func = func
 		
@@ -13,7 +13,7 @@ class tracer:
 		print('call %s to %s' %(self.calls, self.func.__name__))
 		
 		
-"""the original packed func"""		
+"""the original wraped func"""		
 @tracer
 def func(*args):
 	pass
