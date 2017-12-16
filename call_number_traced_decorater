@@ -1,7 +1,7 @@
 class tracer:
-	"""creat a class decorater that count the call number of func """
+	"""create a class decorater that count the call number of func """
 	def __init__(self, func):
-	"""initialize instance self attr which wrap the original func,defined call number"""
+	"""initialize instance self attr which wrap the original func,define call number"""
 		self.calls = 0
 		self.func = func
 		
@@ -25,7 +25,7 @@ def func(*args):
    to slove this problem, use the nested def to bulid a decorator"""
    
 def tracer(func):
-	calls = 0                                                 #calls become a func.attr
+	calls = 0                                                     #calls become a func.attr
 	def onCall(*args, **kwargs):
 		nonlocal calls                                        #nested func can use nest func.attr                                       
 		onCall.calls += 1
